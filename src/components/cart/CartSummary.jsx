@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { CouponInput } from "./CouponInput";
 import { FreeShippingNotice } from "./FreeShippingNotice";
 
 const CartSummary = ({ subtotal, tax, onApplyCoupon }) => {
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end mt-8">
       <div className="w-full max-w-md">
         <div className="border-t border-b divide-y">
           <div className="flex justify-between py-3">
@@ -15,12 +15,7 @@ const CartSummary = ({ subtotal, tax, onApplyCoupon }) => {
             <span className="font-semibold">Sales Tax:</span>
             <span>${tax.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between py-3">
-            <span className="font-semibold">Coupon Code:</span>
-            <button className="text-gray-700 underline hover:text-black transition">
-              Add Coupon
-            </button>
-          </div>
+          <CouponInput />
           <div className="flex justify-between py-4">
             <span className="font-semibold text-lg">Grand total:</span>
             <span className="font-bold text-2xl">

@@ -4,7 +4,6 @@ import { QuantitySelector } from "./QuantitySelector";
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   return (
     <tr className="align-middle border-b border-gray-200 last:border-b-0">
-      {/* Item image and details */}
       <td className="py-6 px-4">
         <div className="flex items-start">
           <img
@@ -13,7 +12,6 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
             className="w-16 h-16 object-cover rounded mr-4"
           />
           <div>
-            {/* Brand or subheading if present */}
             {item.brand && (
               <div className="text-xs font-semibold text-gray-500 mb-0.5">
                 {item.brand}
@@ -45,11 +43,9 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
           </div>
         </div>
       </td>
-      {/* Price */}
       <td className="py-6 px-4 text-lg font-medium text-gray-700 whitespace-nowrap align-middle">
         ${item.price.toFixed(2)}
       </td>
-      {/* Quantity */}
       <td className="py-6 px-4 align-middle">
         {item.price > 0 ? (
           <QuantitySelector
@@ -65,11 +61,9 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
           </div>
         )}
       </td>
-      {/* Total */}
       <td className="py-6 px-4 text-lg font-medium text-gray-700 whitespace-nowrap align-middle">
         ${(item.price * item.quantity).toFixed(2)}
       </td>
-      {/* Remove button */}
       <td className="py-6 px-2 align-middle">
         {onRemove && item.price > 0 && (
           <button

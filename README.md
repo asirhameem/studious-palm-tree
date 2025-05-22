@@ -1,50 +1,63 @@
-# React JS + Tailwind CSS Starter Template
+# React + Tailwind Shopping Cart Application
 
-A starter template for creating React Apps, styled with Tailwind CSS.
+This project is a shopping cart demo built with React and Tailwind CSS. It demonstrates dynamic cart logic, including free products added based on main product selection.
 
-## Getting started
+## Prerequisites
 
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-First, fork this repo.
+## Getting Started
 
-Now head over to creating a <a href="github.com/new">new</a> repo. From the repository template section, click the dropdown and select:
+1. **Clone the repository**
 
-```
-yourusername/react-js-tailwind
-```
+   ```bash
+   git clone <your-repo-url>
+   cd react-js-tailwind
+   ```
 
-Make your changes to suit your project's needs. 
+2. **Install dependencies**
 
-Clone locally with:
+   ```bash
+   npm install
+   ```
 
-```
-git clone https://github.com/yourusername/projectname
-```
+3. **Start the development server**
 
-In your terminal, run:
+   ```bash
+   npm run dev
+   ```
 
-```
-npm install
-```
+   This will start the app locally. Open your browser and go to [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
 
-to install all dependencies.
+4. **Build for production**
 
-When it's done, run:
+   To create an optimized production build:
 
-```
-npm run dev
-```
+   ```bash
+   npm run build
+   ```
 
-Hit
+   The output will be in the `dist` folder.
 
-```
-O
-````
+5. **Preview the production build**
 
-and vite will open it in your browser.
+   ```bash
+   npm run preview
+   ```
 
-Or open your browser and navigate to <a href="localhost:5173">localchost:5173</a>.
+## Project Structure
 
-Make your changes, save and "VOILA!
+- `src/` - Main source code (components, hooks, pages)
+- `public/` - Static assets
+- `tailwind.config.cjs` - Tailwind CSS configuration
+- `vite.config.js` - Vite configuration
 
-Happy hacking!
+## Customization
+
+- Edit products and cart logic in `src/hooks/useProducts.hook.js`.
+- UI components are in `src/components/`.
+
+## License
+
+This project is for demo purposes. Feel free to use and modify as needed.
