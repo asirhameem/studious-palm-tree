@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import { CouponInput } from "./CouponInput";
 import { FreeShippingNotice } from "./FreeShippingNotice";
 
-const CartSummary = ({ subtotal, tax, onApplyCoupon }) => {
+const CartSummary = ({ subtotal, tax }) => {
   return (
     <div className="flex justify-end mt-8">
       <div className="w-full max-w-md">
