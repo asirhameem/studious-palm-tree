@@ -1,5 +1,3 @@
-import React from "react";
-
 const QuantitySelector = ({ quantity, onDecrease, onIncrease }) => {
   return (
     <div className="inline-flex border border-gray-400 rounded overflow-hidden h-9">

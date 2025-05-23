@@ -1,5 +1,3 @@
-import React from "react";
-
 const FreeShippingNotice = () => (
   <>
     <div className="flex items-center mt-4 mb-2 text-green-600 text-sm">

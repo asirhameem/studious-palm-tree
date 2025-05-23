@@ -1,4 +1,3 @@
-import React from "react";
 import { QuantitySelector } from "./QuantitySelector";
 
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
