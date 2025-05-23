@@ -18,12 +18,10 @@ const CartPage = ({ initialCart }) => {
     0
   );
 
-  // Handle quantity change
+  // Handle quantity change (update quantity of main product and any associated free products)
   const handleQuantityChange = (id, newQuantity) => {
-    console.log(id, newQuantity, "id and quantity");
     setUserCart((cart) => {
       const newCart = cart.map((item) => {
-        console.log(item);
         if (
           (item.id === id || item.freeWith === id) &&
           item.quantity < item.totalQuantity
@@ -36,10 +34,9 @@ const CartPage = ({ initialCart }) => {
     });
   };
 
-  // Handle product remove
+  // Handle product remove (remove main product and any associated free products)
   const handleRemove = (id) => {
     setUserCart((cart) => {
-      // Remove the main product and any associated free products
       return cart.filter((item) => item.id !== id && item.freeWith !== id);
     });
   };
