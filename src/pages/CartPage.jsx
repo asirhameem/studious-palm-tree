@@ -9,13 +9,16 @@ const CartPage = ({ initialCart }) => {
   // Create cart with selected products
   const [userCart, setUserCart] = useState(initialCart);
 
+  // Generate final cart with main products and free products
   const finalCart = getFinalCart(userCart);
 
+  // Calculate cart subtotal
   const subtotal = finalCart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  // Handle quantity change
   const handleQuantityChange = (id, newQuantity) => {
     setUserCart((cart) =>
       cart.map((item) =>
@@ -24,6 +27,7 @@ const CartPage = ({ initialCart }) => {
     );
   };
 
+  // Handle product remove
   const handleRemove = (id) => {
     setUserCart((cart) => cart.filter((item) => item.id !== id));
   };
@@ -66,7 +70,7 @@ const CartPage = ({ initialCart }) => {
           </tbody>
         </table>
       </div>
-      <CartSummary subtotal={subtotal} tax={102.5} onApplyCoupon={() => {}} />
+      <CartSummary subtotal={subtotal} tax={102.5} />
     </div>
   );
 };
