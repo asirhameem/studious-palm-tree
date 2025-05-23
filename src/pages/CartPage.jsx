@@ -1,41 +1,53 @@
 import React, { useState } from "react";
 import { CartItem } from "../components/cart/CartItem";
 import { CartSummary } from "../components/cart/CartSummary";
-import { useProducts } from "../hooks/useProducts.hook";
+import { useCart } from "../hooks/useCart.hook";
 
 const CartPage = ({ initialCart }) => {
-  const { getFinalCart } = useProducts();
-
-  // Create cart with selected products
-  const [userCart, setUserCart] = useState(initialCart);
+  const { getFinalCart, saleTax } = useCart();
 
   // Generate final cart with main products and free products
-  const finalCart = getFinalCart(userCart);
+  const finalCart = getFinalCart(initialCart);
 
-  // Calculate cart subtotal
-  const subtotal = finalCart.reduce(
+  // Create cart with selected products
+  const [userCart, setUserCart] = useState(finalCart);
+
+  // Calculate cart subtotal using userCart instead of finalCart
+  const subtotal = userCart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
   // Handle quantity change
   const handleQuantityChange = (id, newQuantity) => {
-    setUserCart((cart) =>
-      cart.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item
-      )
-    );
+    console.log(id, newQuantity, "id and quantity");
+    setUserCart((cart) => {
+      const newCart = cart.map((item) => {
+        console.log(item);
+        if (
+          (item.id === id || item.freeWith === id) &&
+          item.quantity < item.totalQuantity
+        ) {
+          return { ...item, quantity: Math.max(1, newQuantity) };
+        }
+        return item;
+      });
+      return newCart;
+    });
   };
 
   // Handle product remove
   const handleRemove = (id) => {
-    setUserCart((cart) => cart.filter((item) => item.id !== id));
+    setUserCart((cart) => {
+      // Remove the main product and any associated free products
+      return cart.filter((item) => item.id !== id && item.freeWith !== id);
+    });
   };
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6">
-        Your Cart ({finalCart.length} items)
+      <h2 className="text-2xl text-center font-bold mb-6">
+        Your Cart ({userCart.length} items)
       </h2>
       <div className="bg-white rounded-lg shadow">
         <table className="w-full">
@@ -57,7 +69,7 @@ const CartPage = ({ initialCart }) => {
             </tr>
           </thead>
           <tbody>
-            {finalCart.map((item) => (
+            {userCart.map((item) => (
               <CartItem
                 key={item.id}
                 item={item}
@@ -70,7 +82,7 @@ const CartPage = ({ initialCart }) => {
           </tbody>
         </table>
       </div>
-      <CartSummary subtotal={subtotal} tax={102.5} />
+      <CartSummary subtotal={subtotal} tax={saleTax} />
     </div>
   );
 };

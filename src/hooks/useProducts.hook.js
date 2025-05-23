@@ -8,7 +8,8 @@ export const useProducts = () => {
       quantity: 1,
       image: "https://picsum.photos/200",
       note: "Estimated Ship Date: June 6th",
-      freeWith: null,
+      free: [3],
+      totalQuantity: 10,
     },
     {
       id: 2,
@@ -18,7 +19,8 @@ export const useProducts = () => {
       quantity: 1,
       image: "https://picsum.photos/200",
       note: "",
-      freeWith: null,
+      free: [4],
+      totalQuantity: 10,
     },
     {
       id: 3,
@@ -28,7 +30,8 @@ export const useProducts = () => {
       quantity: 1,
       image: "https://picsum.photos/200",
       note: "",
-      freeWith: 1,
+      free: [],
+      totalQuantity: 10,
     },
     {
       id: 4,
@@ -38,33 +41,12 @@ export const useProducts = () => {
       quantity: 1,
       image: "https://picsum.photos/200",
       note: "",
-      freeWith: 2,
+      free: [],
+      totalQuantity: 10,
     },
   ];
 
-  const initialCart = [products[0], products[1]];
-
   const getProductById = (id) => products.find((item) => item.id === id);
 
-  const getFinalCart = (userCart) => {
-    let cart = [...userCart];
-
-    userCart.forEach((mainProduct) => {
-      products.forEach((product) => {
-        if (product.freeWith === mainProduct.id) {
-          cart.push({ ...product, quantity: mainProduct.quantity });
-        }
-      });
-    });
-
-    // Remove duplicates by id (main product takes precedence)
-    const cartMap = new Map();
-    cart.forEach((item) => {
-      cartMap.set(item.id, item);
-    });
-
-    return Array.from(cartMap.values());
-  };
-
-  return { products, initialCart, getProductById, getFinalCart };
+  return { products, getProductById };
 };

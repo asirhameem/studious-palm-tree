@@ -1,9 +1,9 @@
 import React from "react";
 import { CartPage } from "./pages/CartPage";
-import { useProducts } from "./hooks/useProducts.hook";
+import { useCart } from "./hooks/useCart.hook";
 
 function App() {
-  const { initialCart } = useProducts();
+  const { initialCart } = useCart();
   return <CartPage initialCart={initialCart} />;
 }
 

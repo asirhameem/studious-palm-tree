@@ -56,7 +56,7 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
         ) : (
           <div className="flex flex-col items-center">
             <div className="w-24 h-9 flex items-center justify-center border-b border-gray-400">
-              <span className="text-gray-400 text-lg">1</span>
+              <span className="text-gray-400 text-lg">{item.quantity}</span>
             </div>
           </div>
         )}
