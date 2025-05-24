@@ -2,7 +2,7 @@ export const useProducts = () => {
   const products = [
     {
       id: 1,
-      name: "Pi Pizza Oven",
+      name: `<p class="text-2xl font-bold">Pi Pizza Oven</p>`,
       description: "Fuel Source: Wood Only",
       price: 469.99,
       quantity: 1,
@@ -13,7 +13,7 @@ export const useProducts = () => {
     },
     {
       id: 2,
-      name: "Grill Ultimate Bundle",
+      name: `<span class="text-2xl font-bold"><span class="text-sm">Solo Stove</span> <br /> Grill Ultimate Bundle</span>`,
       description: "",
       price: 549.99,
       quantity: 1,
@@ -24,18 +24,18 @@ export const useProducts = () => {
     },
     {
       id: 3,
-      name: "Starters (4 pack)",
+      name: `<span class="text-2xl font-bold"><span class="text-sm">Solo Stove</span> <br /> Starters</span>`,
       description: "",
       price: 0.0,
       quantity: 1,
       image: "https://picsum.photos/200",
-      note: "",
+      note: "4 pack",
       free: [],
       totalQuantity: 10,
     },
     {
       id: 4,
-      name: "Charcoal Grill Pack",
+      name: `<span class="text-2xl font-bold"><span class="text-sm">Solo Stove</span> <br /> Charcoal Grill Pack</span>`,
       description: "",
       price: 0.0,
       quantity: 1,

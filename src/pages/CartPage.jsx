@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CartHeader } from "../components/cart/CartHeader";
 import { CartItem } from "../components/cart/CartItem";
 import { CartSummary } from "../components/cart/CartSummary";
 import { useCart } from "../hooks/useCart.hook";
@@ -43,9 +44,7 @@ const CartPage = ({ initialCart }) => {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl text-center font-bold mb-6">
-        Your Cart ({userCart.length} items)
-      </h2>
+      <CartHeader userCart={userCart} />
       <div className="bg-white rounded-lg shadow">
         <table className="w-full">
           <thead>

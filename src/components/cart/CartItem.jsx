@@ -16,9 +16,10 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
                 {item.brand}
               </div>
             )}
-            <div className="font-extrabold text-xl leading-tight">
-              {item.name}
-            </div>
+            <div
+              className="font-extrabold text-xl leading-tight"
+              dangerouslySetInnerHTML={{ __html: item.name }}
+            ></div>
             {item.note && (
               <div className="font-bold text-orange-500 text-lg leading-tight">
                 ({item.note})
